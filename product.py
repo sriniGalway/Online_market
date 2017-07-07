@@ -127,4 +127,4 @@ class ProductList(Resource):
             products.append({'product_code': row[0], 'product_name': row[1], 'price': row[2]})
         connection.close()
 
-        return {'products': products}
+        return products

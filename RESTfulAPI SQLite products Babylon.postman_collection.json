@@ -1,0 +1,10 @@
+{
+	"variables": [],
+	"info": {
+		"name": "RESTfulAPI SQLite products Babylon",
+		"_postman_id": "3b51ba4e-2821-023c-4211-c42d4f365997",
+		"description": "For RESFul API using Flask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": []
+}
