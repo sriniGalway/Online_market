@@ -1,4 +1,4 @@
-# Online_market
+# Online market product
 Online market python API
 
 Technolgies used:
