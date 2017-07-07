@@ -1,10 +1,714 @@
 {
-	"variables": [],
-	"info": {
-		"name": "RESTfulAPI SQLite products Babylon",
-		"_postman_id": "3b51ba4e-2821-023c-4211-c42d4f365997",
-		"description": "For RESFul API using Flask",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": []
+	"owner": "464098",
+	"lastUpdatedBy": "464098",
+	"lastRevision": 1800383872,
+	"team": null,
+	"id": "3b51ba4e-2821-023c-4211-c42d4f365997",
+	"name": "RESTfulAPI SQLite products Babylon",
+	"description": "For RESFul API using Flask",
+	"order": [],
+	"requests": [
+		{
+			"id": "544f921d-3a26-460a-343c-35dd9ef5af70",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/product/500",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [
+				{
+					"enabled": true,
+					"key": "product_name",
+					"type": "text",
+					"value": "UpdatedTestName"
+				},
+				{
+					"key": "price",
+					"value": "9.94",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 404\"] = responseCode.code === 404;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499436587832,
+			"name": "Update a nonexistent product",
+			"description": "This will create a new item, uniquely identified by product code. it product already exists, it fails.",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": []
+		},
+		{
+			"id": "5a0809b6-e25c-3a04-51fb-c4f2c27316a6",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/product/004",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"enabled": true,
+					"key": "product_name",
+					"type": "text",
+					"value": "TestName"
+				},
+				{
+					"enabled": true,
+					"key": "price",
+					"type": "text",
+					"value": "9.93"
+				}
+			],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499435803524,
+			"name": "Create a single product",
+			"description": "This will create a new product, uniquely identified by product code. it product already exists, it fails.",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": []
+		},
+		{
+			"id": "970550fd-ba65-6b3d-17fb-901fb204af56",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/product/004",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Product name\"] = jsonData.product_name === \"TestName\";\ntests[\"Product price\"] = jsonData.price === 9.93;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499436090404,
+			"name": "Get single product",
+			"description": "This will return one specific product, uniquely identified by product code. No two items may have the same product code.",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 20,
+					"headers": [
+						{
+							"key": "Content-Length",
+							"value": "128",
+							"name": "Content-Length",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Jul 2017 11:14:55 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.12.2 Python/2.7.13",
+							"name": "Server",
+							"description": ""
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\n    \"price\": 45.0, \n    \"product\": {\n        \"product_code\": \"002\", \n        \"product_name\": \"Personalised cufflinks\"\n    }\n}\n",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"code": 200,
+					"responseSize": {
+						"body": 128,
+						"header": 148,
+						"total": 276
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, ewogICAgInByaWNlIjogNDUuMCwgCiAgICAicHJvZHVjdCI6IHsKICAgICAgICAicHJvZHVjdF9jb2RlIjogIjAwMiIsIAogICAgICAgICJwcm9kdWN0X25hbWUiOiAiUGVyc29uYWxpc2VkIGN1ZmZsaW5rcyIKICAgIH0KfQo=",
+					"name": "product_test",
+					"id": "e51fea30-e86f-53c0-af6f-1169e8a6bbf4",
+					"request": "970550fd-ba65-6b3d-17fb-901fb204af56",
+					"owner": "464098",
+					"requestObject": "{\"url\":\"http://127.0.0.1:5000/product/002\",\"pathVariables\":{},\"pathVariableData\":[],\"queryParams\":[],\"headerData\":[{\"key\":\"Content-Type\",\"value\":\"application/json\",\"description\":\"\",\"enabled\":true}],\"headers\":\"Content-Type: application/json\\n\",\"data\":\"{\\n  \\\"username\\\": 'srini',\\n  \\\"password\\\": 'Ji90okmn'\\n}\",\"method\":\"GET\",\"dataMode\":\"raw\"}"
+				}
+			],
+			"rawModeData": "{\n  \"username\": 'srini',\n  \"password\": 'Ji90okmn'\n}"
+		},
+		{
+			"id": "b65c6929-4116-8fba-49f4-6f859525d09d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/product/004",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [
+				{
+					"enabled": true,
+					"key": "product_name",
+					"type": "text",
+					"value": "UpdatedTestName"
+				},
+				{
+					"key": "price",
+					"value": "9.94",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499436415216,
+			"name": "update a single product",
+			"description": "This will create a new item, uniquely identified by product code. it product already exists, it fails.",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": []
+		},
+		{
+			"id": "b6b3781f-a545-d645-9a9d-ebb651859c51",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/product/400",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 404\"] = responseCode.code === 404;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499436567795,
+			"name": "Get non-existent product",
+			"description": "This will return one specific product, uniquely identified by product code. No two items may have the same product code.",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 20,
+					"headers": [
+						{
+							"key": "Content-Length",
+							"value": "128",
+							"name": "Content-Length",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Jul 2017 11:14:55 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.12.2 Python/2.7.13",
+							"name": "Server",
+							"description": ""
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\n    \"price\": 45.0, \n    \"product\": {\n        \"product_code\": \"002\", \n        \"product_name\": \"Personalised cufflinks\"\n    }\n}\n",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"code": 200,
+					"responseSize": {
+						"body": 128,
+						"header": 148,
+						"total": 276
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, ewogICAgInByaWNlIjogNDUuMCwgCiAgICAicHJvZHVjdCI6IHsKICAgICAgICAicHJvZHVjdF9jb2RlIjogIjAwMiIsIAogICAgICAgICJwcm9kdWN0X25hbWUiOiAiUGVyc29uYWxpc2VkIGN1ZmZsaW5rcyIKICAgIH0KfQo=",
+					"name": "product_test",
+					"id": "f85f9028-f986-b6ab-96cd-71e0e386c891",
+					"request": "970550fd-ba65-6b3d-17fb-901fb204af56",
+					"owner": "464098",
+					"requestObject": "{\"url\":\"http://127.0.0.1:5000/product/002\",\"pathVariables\":{},\"pathVariableData\":[],\"queryParams\":[],\"headerData\":[{\"key\":\"Content-Type\",\"value\":\"application/json\",\"description\":\"\",\"enabled\":true}],\"headers\":\"Content-Type: application/json\\n\",\"data\":\"{\\n  \\\"username\\\": 'srini',\\n  \\\"password\\\": 'Ji90okmn'\\n}\",\"method\":\"GET\",\"dataMode\":\"raw\"}"
+				}
+			],
+			"rawModeData": "{\n  \"username\": 'srini',\n  \"password\": 'Ji90okmn'\n}"
+		},
+		{
+			"id": "b7c6c71c-02d4-e822-406f-7423de3a00c6",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/product/004",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Product name\"] = jsonData.product_name === \"UpdatedTestName\";\ntests[\"Product price\"] = jsonData.price === 9.94;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499436845703,
+			"name": "Get single product again",
+			"description": "This will return one specific product, uniquely identified by product code. No two items may have the same product code.",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 20,
+					"headers": [
+						{
+							"key": "Content-Length",
+							"value": "128",
+							"name": "Content-Length",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Jul 2017 11:14:55 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.12.2 Python/2.7.13",
+							"name": "Server",
+							"description": ""
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\n    \"price\": 45.0, \n    \"product\": {\n        \"product_code\": \"002\", \n        \"product_name\": \"Personalised cufflinks\"\n    }\n}\n",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"code": 200,
+					"responseSize": {
+						"body": 128,
+						"header": 148,
+						"total": 276
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, ewogICAgInByaWNlIjogNDUuMCwgCiAgICAicHJvZHVjdCI6IHsKICAgICAgICAicHJvZHVjdF9jb2RlIjogIjAwMiIsIAogICAgICAgICJwcm9kdWN0X25hbWUiOiAiUGVyc29uYWxpc2VkIGN1ZmZsaW5rcyIKICAgIH0KfQo=",
+					"name": "product_test",
+					"id": "dbf5494e-7c93-7a9a-0c24-772e2d65f8b6",
+					"request": "970550fd-ba65-6b3d-17fb-901fb204af56",
+					"owner": "464098",
+					"requestObject": "{\"url\":\"http://127.0.0.1:5000/product/002\",\"pathVariables\":{},\"pathVariableData\":[],\"queryParams\":[],\"headerData\":[{\"key\":\"Content-Type\",\"value\":\"application/json\",\"description\":\"\",\"enabled\":true}],\"headers\":\"Content-Type: application/json\\n\",\"data\":\"{\\n  \\\"username\\\": 'srini',\\n  \\\"password\\\": 'Ji90okmn'\\n}\",\"method\":\"GET\",\"dataMode\":\"raw\"}"
+				}
+			],
+			"rawModeData": "{\n  \"username\": 'srini',\n  \"password\": 'Ji90okmn'\n}"
+		},
+		{
+			"id": "bd1a1216-27d8-9400-12a2-c51667ff9b94",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:5000/product/004",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 404\"] = responseCode.code === 404;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499437365595,
+			"name": "Confirm Deletion",
+			"description": "This will return one specific product, uniquely identified by product code. No two items may have the same product code.",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 20,
+					"headers": [
+						{
+							"key": "Content-Length",
+							"value": "128",
+							"name": "Content-Length",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Jul 2017 11:14:55 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.12.2 Python/2.7.13",
+							"name": "Server",
+							"description": ""
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\n    \"price\": 45.0, \n    \"product\": {\n        \"product_code\": \"002\", \n        \"product_name\": \"Personalised cufflinks\"\n    }\n}\n",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"code": 200,
+					"responseSize": {
+						"body": 128,
+						"header": 148,
+						"total": 276
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, ewogICAgInByaWNlIjogNDUuMCwgCiAgICAicHJvZHVjdCI6IHsKICAgICAgICAicHJvZHVjdF9jb2RlIjogIjAwMiIsIAogICAgICAgICJwcm9kdWN0X25hbWUiOiAiUGVyc29uYWxpc2VkIGN1ZmZsaW5rcyIKICAgIH0KfQo=",
+					"name": "product_test",
+					"id": "b242679a-a23e-edc6-4617-1158a27473da",
+					"request": "970550fd-ba65-6b3d-17fb-901fb204af56",
+					"owner": "464098",
+					"requestObject": "{\"url\":\"http://127.0.0.1:5000/product/002\",\"pathVariables\":{},\"pathVariableData\":[],\"queryParams\":[],\"headerData\":[{\"key\":\"Content-Type\",\"value\":\"application/json\",\"description\":\"\",\"enabled\":true}],\"headers\":\"Content-Type: application/json\\n\",\"data\":\"{\\n  \\\"username\\\": 'srini',\\n  \\\"password\\\": 'Ji90okmn'\\n}\",\"method\":\"GET\",\"dataMode\":\"raw\"}"
+				}
+			],
+			"rawModeData": "{\n  \"username\": 'srini',\n  \"password\": 'Ji90okmn'\n}"
+		},
+		{
+			"id": "be5629cc-8f8c-d765-68d0-8568b3fac776",
+			"headers": "",
+			"headerData": [],
+			"url": "http://127.0.0.1:5000/products",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"Status code is 200\"] = responseCode.code === 200;\ntests['Length of array'] = jsonData.length === 3;\n\ntests[\"First product name\"] = jsonData[0].product_name === \"Lavender heart\";\ntests[\"First product price\"] = jsonData[0].price === 9.25;\ntests[\"First product id\"] = jsonData[0].product_code === \"001\";\n\ntests[\"Second product name\"] = jsonData[1].product_name === \"Personalised cufflinks\";\ntests[\"Second product price\"] = jsonData[1].price === 45.00;\ntests[\"Second product id\"] = jsonData[1].product_code === \"002\";\n\ntests[\"Third product name\"] = jsonData[2].product_name === \"Kids T-shirt\";\ntests[\"Third product price\"] = jsonData[2].price === 19.95;\ntests[\"Third product id\"] = jsonData[2].product_code === \"003\";\n\nvar schema = {\n \"type\":\"array\",\n \"items\": {\n\t\"properties\": {\n\t\t\"product_code\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"example\": \"001\",\n\t\t\t\"description\": \"the id of the product\"\n\t\t},\n\t\t\"price\": {\n\t\t\t\"type\": \"float\",\n\t\t\t\"example\": 9.25,\n\t\t\t\"description\": \"price, in pounds\"\n\t\t},\n\t\t\"product_name\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"example\": \"Lavender heart\",\n\t\t\t\"description\": \"the name of the product\"\n\t\t}\n\t},\n\t\"description\": \"A product\",\n        \"required\":[\"product_code\",\"price\",\"product_name\"]\n }\n};\n\nconsole.log(tv4.error);\ntests[\"Valid Data1\"] = tv4.validate(jsonData, schema);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499446774700,
+			"name": "Get Initial state",
+			"description": "This should return a list of products, each in JSON Format",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 28,
+					"headers": [
+						{
+							"key": "Content-Length",
+							"value": "426",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Jul 2017 11:14:14 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.12.2 Python/2.7.13",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\n    \"products\": [\n        {\n            \"price\": 9.25, \n            \"product_code\": \"001\", \n            \"product_name\": \"Lavender heart\"\n        }, \n        {\n            \"price\": 45.0, \n            \"product_code\": \"002\", \n            \"product_name\": \"Personalised cufflinks\"\n        }, \n        {\n            \"price\": 19.95, \n            \"product_code\": \"003\", \n            \"product_name\": \"Kids T-shirt\"\n        }\n    ]\n}\n",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"code": 200,
+					"responseSize": {
+						"body": 426,
+						"header": 148,
+						"total": 574
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, ewogICAgInByb2R1Y3RzIjogWwogICAgICAgIHsKICAgICAgICAgICAgInByaWNlIjogOS4yNSwgCiAgICAgICAgICAgICJwcm9kdWN0X2NvZGUiOiAiMDAxIiwgCiAgICAgICAgICAgICJwcm9kdWN0X25hbWUiOiAiTGF2ZW5kZXIgaGVhcnQiCiAgICAgICAgfSwgCiAgICAgICAgewogICAgICAgICAgICAicHJpY2UiOiA0NS4wLCAKICAgICAgICAgICAgInByb2R1Y3RfY29kZSI6ICIwMDIiLCAKICAgICAgICAgICAgInByb2R1Y3RfbmFtZSI6ICJQZXJzb25hbGlzZWQgY3VmZmxpbmtzIgogICAgICAgIH0sIAogICAgICAgIHsKICAgICAgICAgICAgInByaWNlIjogMTkuOTUsIAogICAgICAgICAgICAicHJvZHVjdF9jb2RlIjogIjAwMyIsIAogICAgICAgICAgICAicHJvZHVjdF9uYW1lIjogIktpZHMgVC1zaGlydCIKICAgICAgICB9CiAgICBdCn0K",
+					"name": "Product_test",
+					"id": "f3b23c9a-afeb-1b12-e257-15b7fb50b424",
+					"request": "be5629cc-8f8c-d765-68d0-8568b3fac776",
+					"owner": "464098",
+					"requestObject": "{\"url\":\"http://127.0.0.1:5000/products\",\"pathVariables\":{},\"pathVariableData\":[],\"queryParams\":[],\"headerData\":[],\"headers\":\"\",\"data\":null,\"method\":\"GET\",\"dataMode\":\"params\"}"
+				}
+			]
+		},
+		{
+			"id": "c1f7a29d-de9b-763c-c480-a4c5a82280a3",
+			"headers": "",
+			"headerData": [],
+			"url": "http://127.0.0.1:5000/products",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "http://127.0.0.1:5000/products",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1499434650525,
+			"name": "Get Final state",
+			"description": "This should return a list of products, each in JSON Format",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 28,
+					"headers": [
+						{
+							"key": "Content-Length",
+							"value": "426",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Jul 2017 11:14:14 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Werkzeug/0.12.2 Python/2.7.13",
+							"name": "Server",
+							"description": "A name for the server"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\n    \"products\": [\n        {\n            \"price\": 9.25, \n            \"product_code\": \"001\", \n            \"product_name\": \"Lavender heart\"\n        }, \n        {\n            \"price\": 45.0, \n            \"product_code\": \"002\", \n            \"product_name\": \"Personalised cufflinks\"\n        }, \n        {\n            \"price\": 19.95, \n            \"product_code\": \"003\", \n            \"product_name\": \"Kids T-shirt\"\n        }\n    ]\n}\n",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"code": 200,
+					"responseSize": {
+						"body": 426,
+						"header": 148,
+						"total": 574
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, ewogICAgInByb2R1Y3RzIjogWwogICAgICAgIHsKICAgICAgICAgICAgInByaWNlIjogOS4yNSwgCiAgICAgICAgICAgICJwcm9kdWN0X2NvZGUiOiAiMDAxIiwgCiAgICAgICAgICAgICJwcm9kdWN0X25hbWUiOiAiTGF2ZW5kZXIgaGVhcnQiCiAgICAgICAgfSwgCiAgICAgICAgewogICAgICAgICAgICAicHJpY2UiOiA0NS4wLCAKICAgICAgICAgICAgInByb2R1Y3RfY29kZSI6ICIwMDIiLCAKICAgICAgICAgICAgInByb2R1Y3RfbmFtZSI6ICJQZXJzb25hbGlzZWQgY3VmZmxpbmtzIgogICAgICAgIH0sIAogICAgICAgIHsKICAgICAgICAgICAgInByaWNlIjogMTkuOTUsIAogICAgICAgICAgICAicHJvZHVjdF9jb2RlIjogIjAwMyIsIAogICAgICAgICAgICAicHJvZHVjdF9uYW1lIjogIktpZHMgVC1zaGlydCIKICAgICAgICB9CiAgICBdCn0K",
+					"name": "Product_test",
+					"id": "095d81fa-e4ba-7995-4280-dca7d6394872",
+					"request": "be5629cc-8f8c-d765-68d0-8568b3fac776",
+					"owner": "464098",
+					"requestObject": "{\"url\":\"http://127.0.0.1:5000/products\",\"pathVariables\":{},\"pathVariableData\":[],\"queryParams\":[],\"headerData\":[],\"headers\":\"\",\"data\":null,\"method\":\"GET\",\"dataMode\":\"params\"}"
+				}
+			],
+			"isFromCollection": true,
+			"collectionRequestId": "c1f7a29d-de9b-763c-c480-a4c5a82280a3",
+			"folder": "53872c74-c577-8175-3405-d0a64d273852"
+		},
+		{
+			"id": "d2b98b7c-8ef5-ccb5-46bf-2f958870894a",
+			"headers": "",
+			"headerData": [],
+			"url": "http://127.0.0.1:5000/product/004",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [
+				{
+					"enabled": true,
+					"key": "size",
+					"type": "text",
+					"value": "original"
+				}
+			],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 404\"] = responseCode.code === 404;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499436920591,
+			"name": "Delete Non-existant product",
+			"description": "This will delete one specific product, uniquely identified by product code. No two items may have the same name.",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": []
+		},
+		{
+			"id": "f91b00bb-9f74-d285-de73-0318fdb17a2c",
+			"headers": "",
+			"headerData": [],
+			"url": "http://127.0.0.1:5000/product/004",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [
+				{
+					"enabled": true,
+					"key": "size",
+					"type": "text",
+					"value": "original"
+				}
+			],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499436844552,
+			"name": "Delete Single product",
+			"description": "This will delete one specific product, uniquely identified by product code. No two items may have the same name.",
+			"collectionId": "3b51ba4e-2821-023c-4211-c42d4f365997",
+			"responses": []
+		}
+	]
 }
