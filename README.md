@@ -7,6 +7,7 @@ Technolgies used:
 Python 
 Flask
 Flask-RESTful
+Sqlite
 ```
 
 Files:
