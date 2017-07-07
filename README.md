@@ -9,11 +9,12 @@ Flask
 
 Files:
 ------
-
+```
 requirements.txt - Holds list of Python pip dependencies
 app.py - main Flask app python file
 create_table.py - To create the data.db with product table and initial data
 product.py - python file with main processing logic
+```
 
 Command Line Execution:
 -----------------------
