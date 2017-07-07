@@ -7,14 +7,10 @@ class Product(Resource):
 
     parser = reqparse.RequestParser()
     parser.add_argument('price',
-        type=float,
-        required=True,
-        help="The price field cannot be left blank!"
+        type=float
     )
     parser.add_argument('product_name',
-        type=str,
-        required=True,
-        help="The product_name field cannot be left blank!"
+        type=str
     )
    
     #GET /product/{product_id} – Return a single product in JSON format.
@@ -36,7 +32,7 @@ class Product(Resource):
         connection.close()
 
         if row:
-            return {'product': {'product_code': row[0], 'product_name': row[1]}, 'price': row[2]}
+            return {'product_code': row[0], 'product_name': row[1], 'price': row[2]}
 
     #POST /product – Create a new product using posted form data
     def post(self, product_code):
@@ -68,6 +64,9 @@ class Product(Resource):
 
     #DELETE /product/{product_id} – Delete a product by id.
     def delete(self, product_code):
+        if not self.find_by_product(product_code):
+            return {'message': "An product with product_code '{}' does not exists.".format(product_code)}, 404
+
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
 
@@ -76,11 +75,14 @@ class Product(Resource):
 
         connection.commit()
         connection.close()
-
-        return {'message': 'Product deleted'}
+        return {'message': 'Product deleted'}, 200
+        
 
     #PUT /product/{product_id} – Update a product’s name or price by id. We need to provide both product_name and price to update
     def put(self, product_code):
+        if not self.find_by_product(product_code):
+            return {'message': "An product with product_code '{}' does not exists.".format(product_code)}, 404
+
         data = Product.parser.parse_args()
         product = self.find_by_product(product_code)
         updated_product = {'product_code': product_code, 'product_name': data['product_name'], 'price': data['price']}
