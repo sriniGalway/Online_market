@@ -7,7 +7,6 @@ Technolgies used:
 Python 
 Flask
 Flask-RESTful
-Sqlite
 ```
 
 Files:
@@ -25,6 +24,22 @@ Command Line Execution:
 To install all Python dependencies:
 
     sudo pip install -r requirements.txt
+
+To install sqlite3, if it is not part of your python
+
+    For Mac OS, 
+    $brew install sqlite3
+    
+    For Linux, 
+    use the wget to directly download it to your server as shown below.
+    wget http://www.sqlite.org/sqlite-autoconf-3070603.tar.gz
+    
+    Uncompress the tar.gz file and install SQLite3 as shown below.
+    tar xvfz sqlite-autoconf-3070603.tar.gz
+    cd sqlite-autoconf-3070603
+    ./configure
+    make
+    make install
 
 To create the data.db with product table and initial data, use (ensure that the data.db does not exist):
 
