@@ -3,9 +3,12 @@ Online market python API
 
 Technolgies used:
 -----------------
-
+```
 Python 
 Flask
+Flask-RESTful
+Sqlite
+```
 
 Files:
 ------
